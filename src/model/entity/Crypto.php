@@ -1,7 +1,7 @@
 <?php
 
 
-namespace crypto_data\model\entity;
+namespace crypto\model\entity;
 use DateTime;
 use JsonSerializable;
 
@@ -52,7 +52,7 @@ class Crypto implements JsonSerializable
 
     private array $tags;
 
-    private ?string $platform = null;
+    private ?array $platform = null;
 
     /**
      * @name self_reported_circulating_supply
@@ -262,17 +262,17 @@ class Crypto implements JsonSerializable
     }
 
     /**
-     * @return string
+     * @return array
      */
-    public function getPlatform(): ?string
+    public function getPlatform(): ?array
     {
         return $this->platform;
     }
 
     /**
-     * @param string $platform
+     * @param array $platform
      */
-    public function setPlatform(string $platform): void
+    public function setPlatform(array $platform): void
     {
         $this->platform = $platform;
     }

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace crypto_data\model\entity;
+namespace crypto\model\entity;
 use JsonSerializable;
 
 class Quote implements JsonSerializable

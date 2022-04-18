@@ -6,49 +6,21 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitaadb3f12bd3fa1cf9b785ad415fe4baf
 {
-    public static $prefixLengthsPsr4 = array (
-        'D' => 
-        array (
-            'Ds\\' => 3,
-        ),
-    );
-
-    public static $prefixDirsPsr4 = array (
-        'Ds\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/php-ds/php-ds/src',
-        ),
-    );
-
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Ds\\Allocated' => __DIR__ . '/..' . '/php-ds/php-ds/src/Allocated.php',
-        'Ds\\Collection' => __DIR__ . '/..' . '/php-ds/php-ds/src/Collection.php',
-        'Ds\\Graph' => __DIR__ . '/..' . '/php-ds/php-ds/src/Graph.php',
-        'Ds\\Hashable' => __DIR__ . '/..' . '/php-ds/php-ds/src/Hashable.php',
-        'Ds\\Heap' => __DIR__ . '/..' . '/php-ds/php-ds/src/Heap.php',
-        'Ds\\Map' => __DIR__ . '/..' . '/php-ds/php-ds/src/Map.php',
-        'Ds\\PriorityNode' => __DIR__ . '/..' . '/php-ds/php-ds/src/PriorityQueue.php',
-        'Ds\\PriorityQueue' => __DIR__ . '/..' . '/php-ds/php-ds/src/PriorityQueue.php',
-        'Ds\\Queue' => __DIR__ . '/..' . '/php-ds/php-ds/src/Queue.php',
-        'Ds\\Sequence' => __DIR__ . '/..' . '/php-ds/php-ds/src/Sequence.php',
-        'Ds\\Set' => __DIR__ . '/..' . '/php-ds/php-ds/src/Set.php',
-        'Ds\\Stack' => __DIR__ . '/..' . '/php-ds/php-ds/src/Stack.php',
-        'Ds\\Traits\\Allocated' => __DIR__ . '/..' . '/php-ds/php-ds/src/Traits/Allocated.php',
-        'Ds\\Traits\\Collection' => __DIR__ . '/..' . '/php-ds/php-ds/src/Traits/Collection.php',
-        'Ds\\Tuple' => __DIR__ . '/..' . '/php-ds/php-ds/src/Tuple.php',
+        'ConnectionException' => __DIR__ . '/../..' . '/src/util/ConnectionException.php',
         'JsonParseException' => __DIR__ . '/../..' . '/src/util/JsonParseException.php',
-        'crypto_data\\model\\entity\\Crypto' => __DIR__ . '/../..' . '/src/model/entity/Crypto.php',
-        'crypto_data\\model\\entity\\Quote' => __DIR__ . '/../..' . '/src/model/entity/Quote.php',
-        'crypto_data\\model\\entity\\Usd' => __DIR__ . '/../..' . '/src/model/entity/Usd.php',
+        'crypto\\model\\entity\\Crypto' => __DIR__ . '/../..' . '/src/model/entity/Crypto.php',
+        'crypto\\model\\entity\\Quote' => __DIR__ . '/../..' . '/src/model/entity/Quote.php',
+        'crypto\\model\\entity\\Usd' => __DIR__ . '/../..' . '/src/model/entity/Usd.php',
+        'crypto\\model\\remote\\RemoteDao' => __DIR__ . '/../..' . '/src/model/remote/RemoteDao.php',
+        'crypto\\model\\remote\\RemoteDataProvider' => __DIR__ . '/../..' . '/src/model/remote/RemoteDataProvider.php',
         'crypto_data\\util\\JsonMapper' => __DIR__ . '/../..' . '/src/util/JsonMapper.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitaadb3f12bd3fa1cf9b785ad415fe4baf::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitaadb3f12bd3fa1cf9b785ad415fe4baf::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInitaadb3f12bd3fa1cf9b785ad415fe4baf::$classMap;
 
         }, null, ClassLoader::class);

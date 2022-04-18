@@ -10,9 +10,9 @@
     }
   ],
   "require": {
-    "ext-json": "*"
+
   },
   "autoload": {
-    "classmap": ["src/model/entity","src/controller","src/view","src/util","vendor/php-ds"]
+    "classmap": ["src/model","src/controller","src/view","src/util"]
   }
 }

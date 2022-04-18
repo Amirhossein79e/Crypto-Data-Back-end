@@ -7,7 +7,7 @@ use Exception;
 use JsonParseException;
 use ReflectionClass;
 use ReflectionProperty;
-
+use ReflectionException;
 
 class JsonMapper
 {
@@ -113,7 +113,7 @@ class JsonMapper
      * @param ReflectionProperty $property
      * @param $value
      * @return DateTime|object
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     private static function getModifiedValue(ReflectionProperty $property, $value)
     {
