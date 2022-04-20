@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-
+    "ext-mysqli": "*"
   },
   "autoload": {
     "classmap": ["src/model","src/controller","src/view","src/util"]

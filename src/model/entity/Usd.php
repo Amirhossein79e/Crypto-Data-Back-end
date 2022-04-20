@@ -5,7 +5,7 @@ namespace crypto\model\entity;
 use DateTime;
 use JsonSerializable;
 
-class Usd implements JsonSerializable
+class Usd implements DataClass,JsonSerializable
 {
     private float $price;
 
@@ -214,6 +214,24 @@ class Usd implements JsonSerializable
         $this->lastUpdatedPrice = $lastUpdatedPrice;
     }
 
+
+    public function __toString() : string
+    {
+        return "("
+            .$this->getPrice().","
+            .$this->getVolume24H().","
+            .$this->getVolumeChange24H().","
+            .$this->getPercentChange1H().","
+            .$this->getPercentChange24H().","
+            .$this->getPercentChange7D().","
+            .$this->getMarketCap().","
+            .$this->getMarketCapDominance().","
+            .$this->getFullyDistributedMarketCap().","
+            .$this->getLastUpdatedPrice()->format("c")
+            .")";
+    }
+
+
     public function jsonSerialize()
     {
         return [
@@ -229,4 +247,5 @@ class Usd implements JsonSerializable
             ,'last_updated' => $this->getLastUpdatedPrice()->format("c")
         ];
     }
+
 }

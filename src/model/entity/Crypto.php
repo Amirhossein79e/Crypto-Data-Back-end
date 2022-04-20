@@ -5,7 +5,7 @@ namespace crypto\model\entity;
 use DateTime;
 use JsonSerializable;
 
-class Crypto implements JsonSerializable
+class Crypto implements DataClass,JsonSerializable
 {
     private int $id;
 
@@ -325,6 +325,31 @@ class Crypto implements JsonSerializable
         $this->quote = $quote;
     }
 
+
+    public function __toString() : string
+    {
+        return "("
+            .$this->getId().","
+            .$this->getName().","
+            .$this->getSymbol().","
+            .$this->getSlug().","
+            .$this->getCmcRank().","
+            .$this->getNumMarketPairs().","
+            .$this->getCirculatingSupply().","
+            .$this->getTotalSupply().","
+            .$this->getMaxSupply().","
+            .$this->getLastUpdated()->format("c").","
+            .$this->getDateAdded()->format("c").","
+            .json_encode($this->getTags()).","
+            .$this->getPlatform().","
+            .$this->getSelfReportedCirculatingSupply().","
+            .$this->getSelfReportedMarketCap().","
+            .$this->getSelfReportedCirculatingSupply().","
+            .$this->getQuote()
+            .")";
+    }
+
+
     public function jsonSerialize()
     {
         return [
@@ -346,4 +371,5 @@ class Crypto implements JsonSerializable
                 ,"quote" => $this->getQuote()
         ];
     }
+
 }

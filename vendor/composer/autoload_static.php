@@ -9,10 +9,13 @@ class ComposerStaticInitaadb3f12bd3fa1cf9b785ad415fe4baf
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'ConnectionException' => __DIR__ . '/../..' . '/src/util/ConnectionException.php',
+        'CryptoDataProvider' => __DIR__ . '/../..' . '/src/model/local/CryptoDataProvider.php',
         'JsonParseException' => __DIR__ . '/../..' . '/src/util/JsonParseException.php',
         'crypto\\model\\entity\\Crypto' => __DIR__ . '/../..' . '/src/model/entity/Crypto.php',
         'crypto\\model\\entity\\Quote' => __DIR__ . '/../..' . '/src/model/entity/Quote.php',
         'crypto\\model\\entity\\Usd' => __DIR__ . '/../..' . '/src/model/entity/Usd.php',
+        'crypto\\model\\local\\CryptoDao' => __DIR__ . '/../..' . '/src/model/local/CryptoDao.php',
+        'crypto\\model\\local\\DataProvider' => __DIR__ . '/../..' . '/src/model/local/DataProvider.php',
         'crypto\\model\\remote\\RemoteDao' => __DIR__ . '/../..' . '/src/model/remote/RemoteDao.php',
         'crypto\\model\\remote\\RemoteDataProvider' => __DIR__ . '/../..' . '/src/model/remote/RemoteDataProvider.php',
         'crypto_data\\util\\JsonMapper' => __DIR__ . '/../..' . '/src/util/JsonMapper.php',

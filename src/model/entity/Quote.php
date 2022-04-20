@@ -4,7 +4,7 @@
 namespace crypto\model\entity;
 use JsonSerializable;
 
-class Quote implements JsonSerializable
+class Quote implements DataClass,JsonSerializable
 {
     /**
      * @name USD
@@ -27,6 +27,13 @@ class Quote implements JsonSerializable
         $this->usd = $usd;
     }
 
+
+    public function __toString(): string
+    {
+        return "(".$this->getUsd().")";
+    }
+
+
     public function jsonSerialize()
     {
         return [
@@ -42,4 +49,5 @@ class Quote implements JsonSerializable
             ,'last_updated' => $this->getUsd()->getLastUpdatedPrice()->format("c")
         ];
     }
+
 }
