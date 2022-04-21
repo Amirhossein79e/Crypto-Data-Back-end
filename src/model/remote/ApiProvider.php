@@ -31,7 +31,7 @@ class ApiProvider implements RemoteDao
 
     public function getCryptos(string $apiKey, int $offset = 1) : array
     {
-        $curl = curl_init("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=$offset&limit=200");
+        $curl = curl_init("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=$offset&limit=10");
 
         curl_setopt($curl,CURLOPT_HTTPGET,true);
         curl_setopt($curl,CURLOPT_HTTPHEADER,array("X-CMC_PRO_API_KEY: $apiKey"));

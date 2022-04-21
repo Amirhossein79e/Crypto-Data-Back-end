@@ -30,23 +30,23 @@ class Quote implements DataClass,JsonSerializable
 
     public function __toString(): string
     {
-        return "(".$this->getUsd().")";
+        return "(".$this->usd.")";
     }
 
 
     public function jsonSerialize()
     {
         return [
-            'price' => $this->getUsd()->getPrice()
-            ,'volume_24h' => $this->getUsd()->getVolume24H()
-            ,'volume_change_24h' => $this->getUsd()->getVolumeChange24H()
-            ,'percent_change_1h' => $this->getUsd()->getPercentChange1H()
-            ,'percent_change_24h' => $this->getUsd()->getPercentChange24H()
-            ,'percent_change_7d' => $this->getUsd()->getPercentChange7D()
-            ,'market_cap' => $this->getUsd()->getMarketCap()
-            ,'market_cap_dominance' => $this->getUsd()->getMarketCapDominance()
-            ,'fully_diluted_market_cap' => $this->getUsd()->getFullyDistributedMarketCap()
-            ,'last_updated' => $this->getUsd()->getLastUpdatedPrice()->format("c")
+            'price' => $this->usd->getPrice()
+            ,'volume_24h' => $this->usd->getVolume24H()
+            ,'volume_change_24h' => $this->usd->getVolumeChange24H()
+            ,'percent_change_1h' => $this->usd->getPercentChange1H()
+            ,'percent_change_24h' => $this->usd->getPercentChange24H()
+            ,'percent_change_7d' => $this->usd->getPercentChange7D()
+            ,'market_cap' => $this->usd->getMarketCap()
+            ,'market_cap_dominance' => $this->usd->getMarketCapDominance()
+            ,'fully_diluted_market_cap' => $this->usd->getFullyDistributedMarketCap()
+            ,'last_updated' => $this->usd->getLastUpdatedPrice()->format("c")
         ];
     }
 

@@ -218,16 +218,16 @@ class Usd implements DataClass,JsonSerializable
     public function __toString() : string
     {
         return "("
-            .$this->getPrice().","
-            .$this->getVolume24H().","
-            .$this->getVolumeChange24H().","
-            .$this->getPercentChange1H().","
-            .$this->getPercentChange24H().","
-            .$this->getPercentChange7D().","
-            .$this->getMarketCap().","
-            .$this->getMarketCapDominance().","
-            .$this->getFullyDistributedMarketCap().","
-            .$this->getLastUpdatedPrice()->format("c")
+            .$this->price.","
+            .$this->volume24H.","
+            .$this->volumeChange24H.","
+            .$this->percentChange1H.","
+            .$this->percentChange24H.","
+            .$this->percentChange7D.","
+            .$this->marketCap.","
+            .$this->marketCapDominance.","
+            .$this->fullyDistributedMarketCap.","
+            .$this->lastUpdatedPrice->format("c")
             .")";
     }
 
@@ -235,16 +235,16 @@ class Usd implements DataClass,JsonSerializable
     public function jsonSerialize()
     {
         return [
-            'price' => $this->getPrice()
-            ,'volume_24h' => $this->getVolume24H()
-            ,'volume_change_24h' => $this->getVolumeChange24H()
-            ,'percent_change_1h' => $this->getPercentChange1H()
-            ,'percent_change_24h' => $this->getPercentChange24H()
-            ,'percent_change_7d' => $this->getPercentChange7D()
-            ,'market_cap' => $this->getMarketCap()
-            ,'market_cap_dominance' => $this->getMarketCapDominance()
-            ,'fully_diluted_market_cap' => $this->getFullyDistributedMarketCap()
-            ,'last_updated' => $this->getLastUpdatedPrice()->format("c")
+            'price' => $this->price
+            ,'volume_24h' => $this->volume24H
+            ,'volume_change_24h' => $this->volumeChange24H
+            ,'percent_change_1h' => $this->percentChange1H
+            ,'percent_change_24h' => $this->percentChange24H
+            ,'percent_change_7d' => $this->percentChange7D
+            ,'market_cap' => $this->marketCap
+            ,'market_cap_dominance' => $this->marketCapDominance
+            ,'fully_diluted_market_cap' => $this->fullyDistributedMarketCap
+            ,'last_updated' => $this->lastUpdatedPrice->format("c")
         ];
     }
 
