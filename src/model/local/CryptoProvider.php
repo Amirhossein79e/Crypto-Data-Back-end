@@ -32,8 +32,74 @@ class CryptoProvider extends Database implements CryptoDao
 
     public function select(int $limit = 50, int $offset = 0) : array|false
     {
-        $stmt = $this->mysqli->prepare("select * from crypto_data limit ? offset ?");
+        $stmt = $this->mysqli->prepare("select * from crypto_data order by cmc_rank limit ? offset ?");
         $stmt->bind_param("ii",$limit,$offset);
+        $isSuccess = $stmt->execute();
+
+        if ($isSuccess)
+        {
+
+            $result = $stmt->get_result();
+            $array = array();
+
+            if ($result->num_rows > 0)
+            {
+                while (($crypto = $result->fetch_object(Crypto::class)) != null)
+                {
+                    $array[] = $crypto;
+                }
+            }
+
+            $result->close();
+            $stmt->close();
+            return $array;
+
+        }else
+        {
+            $stmt->close();
+            return false;
+        }
+    }
+
+
+    public function selectQuick(int $limit = 50, int $offset = 0) : array|false
+    {
+        $stmt = $this->mysqli->prepare("select id,name,symbol,slug,cmc_rank,last_updated,price,percent_change_24h from crypto_data order by cmc_rank limit ? offset ?");
+        $stmt->bind_param("ii",$limit,$offset);
+        $isSuccess = $stmt->execute();
+
+        if ($isSuccess)
+        {
+
+            $result = $stmt->get_result();
+            $array = array();
+
+            if ($result->num_rows > 0)
+            {
+                while (($crypto = $result->fetch_object(Crypto::class)) != null)
+                {
+                    $array[] = $crypto;
+                }
+            }
+
+            $result->close();
+            $stmt->close();
+            return $array;
+
+        }else
+        {
+            $stmt->close();
+            return false;
+        }
+    }
+
+
+    public function selectQuickById(int... $cryptoIds) : array|false
+    {
+        $ids = implode(",",$cryptoIds);
+
+        $stmt = $this->mysqli->prepare("select id,name,symbol,slug,cmc_rank,last_updated,price,percent_change_24h from crypto_data where id in (?)");
+        $stmt->bind_param("s",$ids);
         $isSuccess = $stmt->execute();
 
         if ($isSuccess)

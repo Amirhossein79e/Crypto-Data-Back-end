@@ -10,6 +10,7 @@ class ComposerStaticInitaadb3f12bd3fa1cf9b785ad415fe4baf
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'ConnectionException' => __DIR__ . '/../..' . '/src/util/ConnectionException.php',
         'JsonParseException' => __DIR__ . '/../..' . '/src/util/JsonParseException.php',
+        'Test' => __DIR__ . '/../..' . '/src/util/Test.php',
         'crypto\\model\\entity\\Crypto' => __DIR__ . '/../..' . '/src/model/entity/Crypto.php',
         'crypto\\model\\entity\\DataClass' => __DIR__ . '/../..' . '/src/model/entity/DataClass.php',
         'crypto\\model\\entity\\Quote' => __DIR__ . '/../..' . '/src/model/entity/Quote.php',

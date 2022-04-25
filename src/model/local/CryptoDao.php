@@ -10,6 +10,10 @@ interface CryptoDao
 
     public function select(int $limit, int $offset) : array|false;
 
+    public function selectQuick(int $limit, int $offset) : array|false;
+
+    public function selectQuickById(int... $cryptoIds) : array|false;
+
     public function update(Crypto... $cryptos) : bool;
 
     public function delete(int... $cryptoIds) : bool;
