@@ -15,59 +15,30 @@ class Crypto implements DataClass,JsonSerializable
 
     private string $slug;
 
-    /**
-     * @name cmc_rank
-     */
-    private int $cmcRank;
+    private int $cmc_rank;
 
-    /**
-     * @name num_market_pairs
-     */
-    private int $numMarketPairs;
+    private int $num_market_pairs;
 
-    /**
-     * @name circulating_supply
-     */
-    private int $circulatingSupply;
+    private int $circulating_supply;
 
-    /**
-     * @name total_supply
-     */
-    private int $totalSupply;
+    private int $total_supply;
 
-    /**
-     * @name max_supply
-     */
-    private ?int $maxSupply = null;
+    private ?int $max_supply = null;
 
-    /**
-     * @name last_updated
-     */
-    private DateTime $lastUpdated;
+    private DateTime $last_updated;
 
-    /**
-     * @name date_added
-     */
-    private DateTime $dateAdded;
+    private DateTime $date_added;
 
     private array $tags;
 
     private ?array $platform = null;
 
-    /**
-     * @name self_reported_circulating_supply
-     */
-    private ?int $selfReportedCirculatingSupply = null;
+    private ?int $self_reported_circulating_supply = null;
 
-    /**
-     * @name self_reported_market_cap
-     */
-    private ?int $selfReportedMarketCap = null;
+    private ?int $self_reported_market_cap = null;
 
-    /**
-     * @name quote
-     */
     private Quote $quote;
+
 
     /**
      * @return int
@@ -136,17 +107,17 @@ class Crypto implements DataClass,JsonSerializable
     /**
      * @return int
      */
-    public function getCmcRank(): ?int
+    public function getCmcRank(): int
     {
-        return $this->cmcRank;
+        return $this->cmc_rank;
     }
 
     /**
-     * @param int $cmcRank
+     * @param int $cmc_rank
      */
-    public function setCmcRank(int $cmcRank): void
+    public function setCmcRank(int $cmc_rank): void
     {
-        $this->cmcRank = $cmcRank;
+        $this->cmc_rank = $cmc_rank;
     }
 
     /**
@@ -154,15 +125,15 @@ class Crypto implements DataClass,JsonSerializable
      */
     public function getNumMarketPairs(): int
     {
-        return $this->numMarketPairs;
+        return $this->num_market_pairs;
     }
 
     /**
-     * @param int $numMarketPairs
+     * @param int $num_market_pairs
      */
-    public function setNumMarketPairs(int $numMarketPairs): void
+    public function setNumMarketPairs(int $num_market_pairs): void
     {
-        $this->numMarketPairs = $numMarketPairs;
+        $this->num_market_pairs = $num_market_pairs;
     }
 
     /**
@@ -170,15 +141,15 @@ class Crypto implements DataClass,JsonSerializable
      */
     public function getCirculatingSupply(): int
     {
-        return $this->circulatingSupply;
+        return $this->circulating_supply;
     }
 
     /**
-     * @param int $circulatingSupply
+     * @param int $circulating_supply
      */
-    public function setCirculatingSupply(int $circulatingSupply): void
+    public function setCirculatingSupply(int $circulating_supply): void
     {
-        $this->circulatingSupply = $circulatingSupply;
+        $this->circulating_supply = $circulating_supply;
     }
 
     /**
@@ -186,31 +157,31 @@ class Crypto implements DataClass,JsonSerializable
      */
     public function getTotalSupply(): int
     {
-        return $this->totalSupply;
+        return $this->total_supply;
     }
 
     /**
-     * @param int $totalSupply
+     * @param int $total_supply
      */
-    public function setTotalSupply(int $totalSupply): void
+    public function setTotalSupply(int $total_supply): void
     {
-        $this->totalSupply = $totalSupply;
+        $this->total_supply = $total_supply;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getMaxSupply(): ?int
     {
-        return $this->maxSupply;
+        return $this->max_supply;
     }
 
     /**
-     * @param int $maxSupply
+     * @param int|null $max_supply
      */
-    public function setMaxSupply(int $maxSupply): void
+    public function setMaxSupply(?int $max_supply): void
     {
-        $this->maxSupply = $maxSupply;
+        $this->max_supply = $max_supply;
     }
 
     /**
@@ -218,15 +189,15 @@ class Crypto implements DataClass,JsonSerializable
      */
     public function getLastUpdated(): DateTime
     {
-        return $this->lastUpdated;
+        return $this->last_updated;
     }
 
     /**
-     * @param DateTime $lastUpdated
+     * @param DateTime $last_updated
      */
-    public function setLastUpdated(DateTime $lastUpdated): void
+    public function setLastUpdated(DateTime $last_updated): void
     {
-        $this->lastUpdated = $lastUpdated;
+        $this->last_updated = $last_updated;
     }
 
     /**
@@ -234,15 +205,15 @@ class Crypto implements DataClass,JsonSerializable
      */
     public function getDateAdded(): DateTime
     {
-        return $this->dateAdded;
+        return $this->date_added;
     }
 
     /**
-     * @param DateTime $dateAdded
+     * @param DateTime $date_added
      */
-    public function setDateAdded(DateTime $dateAdded): void
+    public function setDateAdded(DateTime $date_added): void
     {
-        $this->dateAdded = $dateAdded;
+        $this->date_added = $date_added;
     }
 
     /**
@@ -262,7 +233,7 @@ class Crypto implements DataClass,JsonSerializable
     }
 
     /**
-     * @return array
+     * @return array|null
      */
     public function getPlatform(): ?array
     {
@@ -270,43 +241,43 @@ class Crypto implements DataClass,JsonSerializable
     }
 
     /**
-     * @param array $platform
+     * @param array|null $platform
      */
-    public function setPlatform(array $platform): void
+    public function setPlatform(?array $platform): void
     {
         $this->platform = $platform;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getSelfReportedCirculatingSupply(): ?int
     {
-        return $this->selfReportedCirculatingSupply;
+        return $this->self_reported_circulating_supply;
     }
 
     /**
-     * @param int $selfReportedCirculatingSupply
+     * @param int|null $self_reported_circulating_supply
      */
-    public function setSelfReportedCirculatingSupply(int $selfReportedCirculatingSupply): void
+    public function setSelfReportedCirculatingSupply(?int $self_reported_circulating_supply): void
     {
-        $this->selfReportedCirculatingSupply = $selfReportedCirculatingSupply;
+        $this->self_reported_circulating_supply = $self_reported_circulating_supply;
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getSelfReportedMarketCap(): ?int
     {
-        return $this->selfReportedMarketCap;
+        return $this->self_reported_market_cap;
     }
 
     /**
-     * @param int $selfReportedMarketCap
+     * @param int|null $self_reported_market_cap
      */
-    public function setSelfReportedMarketCap(int $selfReportedMarketCap): void
+    public function setSelfReportedMarketCap(?int $self_reported_market_cap): void
     {
-        $this->selfReportedMarketCap = $selfReportedMarketCap;
+        $this->self_reported_market_cap = $self_reported_market_cap;
     }
 
     /**
@@ -333,40 +304,40 @@ class Crypto implements DataClass,JsonSerializable
             .$this->name.","
             .$this->symbol.","
             .$this->slug.","
-            .$this->cmcRank.","
-            .$this->numMarketPairs.","
-            .$this->circulatingSupply.","
-            .$this->totalSupply.","
-            .($this->maxSupply ?? var_export($this->maxSupply,true)).","
-            .$this->lastUpdated->format("c").","
-            .$this->dateAdded->format("c").","
+            .$this->cmc_rank.","
+            .$this->num_market_pairs.","
+            .$this->circulating_supply.","
+            .$this->total_supply.","
+            .($this->max_supply ?? var_export($this->max_supply,true)).","
+            .$this->last_updated->format("c").","
+            .$this->date_added->format("c").","
             .json_encode($this->tags).","
             .(($this->platform !== null) ? json_encode($this->platform) : var_export($this->platform,true)).","
-            .($this->selfReportedCirculatingSupply ?? var_export($this->selfReportedCirculatingSupply,true)).","
-            .($this->selfReportedMarketCap ?? var_export($this->selfReportedMarketCap,true)).","
+            .($this->self_reported_circulating_supply ?? var_export($this->self_reported_circulating_supply,true)).","
+            .($this->self_reported_market_cap ?? var_export($this->self_reported_market_cap,true)).","
             .$this->quote
             .")";
     }
 
 
-    public function jsonSerialize()
+    public function jsonSerialize() : array
     {
         return [
                 "id" => $this->id
                 ,"name" => $this->name
                 ,"symbol" => $this->symbol
                 ,"slug" => $this->slug
-                ,"cmc_rank" => $this->cmcRank
-                ,"num_market_pairs" => $this->numMarketPairs
-                ,"circulating_supply" => $this->circulatingSupply
-                ,"total_supply" => $this->totalSupply
-                ,"max_supply" => $this->maxSupply
-                ,"last_updated" => $this->lastUpdated->format("c")
-                ,"date_added" => $this->dateAdded->format("c")
+                ,"cmcRank" => $this->cmc_rank
+                ,"numMarketPairs" => $this->num_market_pairs
+                ,"circulatingSupply" => $this->circulating_supply
+                ,"totalSupply" => $this->total_supply
+                ,"maxSupply" => $this->max_supply
+                ,"lastUpdated" => $this->last_updated->format("c")
+                ,"dateAdded" => $this->date_added->format("c")
                 ,"tags" => $this->tags
                 ,"platform" => $this->platform
-                ,"self_reported_circulating_supply" => $this->selfReportedCirculatingSupply
-                ,"self_reported_market_cap" => $this->selfReportedMarketCap
+                ,"selfReportedCirculatingSupply" => $this->self_reported_circulating_supply
+                ,"selfReportedMarketCap" => $this->self_reported_market_cap
                 ,"quote" => $this->quote
         ];
     }

@@ -6,47 +6,46 @@ use JsonSerializable;
 
 class Quote implements DataClass,JsonSerializable
 {
-    /**
-     * @name USD
-     */
-    private Usd $usd;
+
+    private Usd $USD;
+
 
     /**
      * @return Usd
      */
-    public function getUsd(): Usd
+    public function getUSD(): Usd
     {
-        return $this->usd;
+        return $this->USD;
     }
 
     /**
-     * @param Usd $usd
+     * @param Usd $USD
      */
-    public function setUsd(Usd $usd): void
+    public function setUSD(Usd $USD): void
     {
-        $this->usd = $usd;
+        $this->USD = $USD;
     }
 
 
     public function __toString(): string
     {
-        return "(".$this->usd.")";
+        return "(".$this->USD.")";
     }
 
 
-    public function jsonSerialize()
+    public function jsonSerialize() : array
     {
         return [
-            'price' => $this->usd->getPrice()
-            ,'volume_24h' => $this->usd->getVolume24H()
-            ,'volume_change_24h' => $this->usd->getVolumeChange24H()
-            ,'percent_change_1h' => $this->usd->getPercentChange1H()
-            ,'percent_change_24h' => $this->usd->getPercentChange24H()
-            ,'percent_change_7d' => $this->usd->getPercentChange7D()
-            ,'market_cap' => $this->usd->getMarketCap()
-            ,'market_cap_dominance' => $this->usd->getMarketCapDominance()
-            ,'fully_diluted_market_cap' => $this->usd->getFullyDistributedMarketCap()
-            ,'last_updated' => $this->usd->getLastUpdatedPrice()->format("c")
+            'price' => $this->USD->getPrice()
+            ,'volume24H' => $this->USD->getVolume24H()
+            ,'volumeChange24H' => $this->USD->getVolumeChange24H()
+            ,'percentChange1H' => $this->USD->getPercentChange1H()
+            ,'percentChange24H' => $this->USD->getPercentChange24H()
+            ,'percentChange7D' => $this->USD->getPercentChange7D()
+            ,'marketCap' => $this->USD->getMarketCap()
+            ,'marketCapDominance' => $this->USD->getMarketCapdominance()
+            ,'fullyDilutedMarketCap' => $this->USD->getFullyDilutedmarketcap()
+            ,'lastUpdated' => $this->USD->getLastUpdated()->format("c")
         ];
     }
 

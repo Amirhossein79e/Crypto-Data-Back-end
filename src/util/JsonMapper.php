@@ -12,37 +12,34 @@ use ReflectionException;
 class JsonMapper
 {
     /**
-     * This method helps you convert your json to array of specific object.
+     * This method helps you convert your json to array of specific object by name or name annotation.
      * @param string $jsonString the json string should be parse. {"id":"1"}
-     * @param string $classType the class type which json should be map to it. Class::class
-     * @return array returns an array of specific object by json you provided.
+     * @param string $classType the class type which json should be mapped to it. Class::class
+     * @return object|array returns an array of specific object or an object by json you provided.
      * @throws JsonParseException when json object is not valid or your object class has problem.
      */
-    public static function map(string $jsonString, string $classType) : array
+    public static function map(string $jsonString, string $classType) : object|array
     {
         try
         {
-            $isObject = strpos(trim($jsonString),'[') !== 0;
+            $isObject = !str_starts_with(trim($jsonString), '[');
             $jsonArray = json_decode($jsonString,true);
             $refClass = new ReflectionClass($classType);
 
-            $resultArray = array();
-
             if ($isObject)
             {
-
-                $resultArray[] = self::mapItem($jsonArray,$refClass);
-
+                return self::mapItem($jsonArray,$refClass);
             }else
             {
+                $resultArray = array();
+
                 foreach ($jsonArray as $json)
                 {
                     $resultArray[] = self::mapItem($json,$refClass);
                 }
 
+                return $resultArray;
             }
-
-            return $resultArray;
 
         }catch (Exception $exception)
         {
@@ -56,6 +53,7 @@ class JsonMapper
      * @param array $jsonArray json should be converted to object.
      * @param ReflectionClass $reflectedClass reflection object of class for mapping json to it.
      * @return object an instance of class with json values mapped to fields.
+     * @throws ReflectionException if a problem occurs when try to use reflection
      */
     private static function mapItem(array $jsonArray,ReflectionClass $reflectedClass) : object
     {
@@ -115,7 +113,7 @@ class JsonMapper
      * @return DateTime|object
      * @throws ReflectionException
      */
-    private static function getModifiedValue(ReflectionProperty $property, $value)
+    private static function getModifiedValue(ReflectionProperty $property, $value) : mixed
     {
         switch ($property->getType())
         {

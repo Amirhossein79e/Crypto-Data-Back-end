@@ -9,50 +9,23 @@ class Usd implements DataClass,JsonSerializable
 {
     private float $price;
 
-    /**
-     * @name volume_24h
-     */
-    private float $volume24H;
+    private float $volume_24h;
 
-    /**
-     * @name volume_change_24h
-     */
-    private float $volumeChange24H;
+    private float $volume_change_24h;
 
-    /**
-     * @name percent_change_1h
-     */
-    private float $percentChange1H;
+    private float $percent_change_1h;
 
-    /**
-     * @name percent_change_24h
-     */
-    private float $percentChange24H;
+    private float $percent_change_24h;
 
-    /**
-     * @name percent_change_7d
-     */
-    private float $percentChange7D;
+    private float $percent_change_7d;
 
-    /**
-     * @name market_cap
-     */
-    private float $marketCap;
+    private float $market_cap;
 
-    /**
-     * @name market_cap_dominance
-     */
-    private float $marketCapDominance;
+    private float $market_cap_dominance;
 
-    /**
-     * @name fully_diluted_market_cap
-     */
-    private float $fullyDistributedMarketCap;
+    private float $fully_diluted_market_cap;
 
-    /**
-     * @name last_updated
-     */
-    private DateTime $lastUpdatedPrice;
+    private DateTime $last_updated;
 
     /**
      * @return float
@@ -73,81 +46,81 @@ class Usd implements DataClass,JsonSerializable
     /**
      * @return float
      */
-    public function getVolume24H(): float
+    public function getVolume24h(): float
     {
-        return $this->volume24H;
+        return $this->volume_24h;
     }
 
     /**
-     * @param float $volume24H
+     * @param float $volume_24h
      */
-    public function setVolume24H(float $volume24H): void
+    public function setVolume24h(float $volume_24h): void
     {
-        $this->volume24H = $volume24H;
-    }
-
-    /**
-     * @return float
-     */
-    public function getVolumeChange24H(): float
-    {
-        return $this->volumeChange24H;
-    }
-
-    /**
-     * @param float $volumeChange24H
-     */
-    public function setVolumeChange24H(float $volumeChange24H): void
-    {
-        $this->volumeChange24H = $volumeChange24H;
+        $this->volume_24h = $volume_24h;
     }
 
     /**
      * @return float
      */
-    public function getPercentChange1H(): float
+    public function getVolumeChange24h(): float
     {
-        return $this->percentChange1H;
+        return $this->volume_change_24h;
     }
 
     /**
-     * @param float $percentChange1H
+     * @param float $volume_change_24h
      */
-    public function setPercentChange1H(float $percentChange1H): void
+    public function setVolumeChange24h(float $volume_change_24h): void
     {
-        $this->percentChange1H = $percentChange1H;
-    }
-
-    /**
-     * @return float
-     */
-    public function getPercentChange24H(): float
-    {
-        return $this->percentChange24H;
-    }
-
-    /**
-     * @param float $percentChange24H
-     */
-    public function setPercentChange24H(float $percentChange24H): void
-    {
-        $this->percentChange24H = $percentChange24H;
+        $this->volume_change_24h = $volume_change_24h;
     }
 
     /**
      * @return float
      */
-    public function getPercentChange7D(): float
+    public function getPercentChange1h(): float
     {
-        return $this->percentChange7D;
+        return $this->percent_change_1h;
     }
 
     /**
-     * @param float $percentChange7D
+     * @param float $percent_change_1h
      */
-    public function setPercentChange7D(float $percentChange7D): void
+    public function setPercentChange1h(float $percent_change_1h): void
     {
-        $this->percentChange7D = $percentChange7D;
+        $this->percent_change_1h = $percent_change_1h;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPercentChange24h(): float
+    {
+        return $this->percent_change_24h;
+    }
+
+    /**
+     * @param float $percent_change_24h
+     */
+    public function setPercentChange24h(float $percent_change_24h): void
+    {
+        $this->percent_change_24h = $percent_change_24h;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPercentChange7d(): float
+    {
+        return $this->percent_change_7d;
+    }
+
+    /**
+     * @param float $percent_change_7d
+     */
+    public function setPercentChange7d(float $percent_change_7d): void
+    {
+        $this->percent_change_7d = $percent_change_7d;
     }
 
     /**
@@ -155,15 +128,15 @@ class Usd implements DataClass,JsonSerializable
      */
     public function getMarketCap(): float
     {
-        return $this->marketCap;
+        return $this->market_cap;
     }
 
     /**
-     * @param float $marketCap
+     * @param float $market_cap
      */
-    public function setMarketCap(float $marketCap): void
+    public function setMarketCap(float $market_cap): void
     {
-        $this->marketCap = $marketCap;
+        $this->market_cap = $market_cap;
     }
 
     /**
@@ -171,47 +144,47 @@ class Usd implements DataClass,JsonSerializable
      */
     public function getMarketCapDominance(): float
     {
-        return $this->marketCapDominance;
+        return $this->market_cap_dominance;
     }
 
     /**
-     * @param float $marketCapDominance
+     * @param float $market_cap_dominance
      */
-    public function setMarketCapDominance(float $marketCapDominance): void
+    public function setMarketCapDominance(float $market_cap_dominance): void
     {
-        $this->marketCapDominance = $marketCapDominance;
+        $this->market_cap_dominance = $market_cap_dominance;
     }
 
     /**
      * @return float
      */
-    public function getFullyDistributedMarketCap(): float
+    public function getFullyDilutedMarketCap(): float
     {
-        return $this->fullyDistributedMarketCap;
+        return $this->fully_diluted_market_cap;
     }
 
     /**
-     * @param float $fullyDistributedMarketCap
+     * @param float $fully_diluted_market_cap
      */
-    public function setFullyDistributedMarketCap(float $fullyDistributedMarketCap): void
+    public function setFullyDilutedMarketCap(float $fully_diluted_market_cap): void
     {
-        $this->fullyDistributedMarketCap = $fullyDistributedMarketCap;
+        $this->fully_diluted_market_cap = $fully_diluted_market_cap;
     }
 
     /**
      * @return DateTime
      */
-    public function getLastUpdatedPrice(): DateTime
+    public function getLastUpdated(): DateTime
     {
-        return $this->lastUpdatedPrice;
+        return $this->last_updated;
     }
 
     /**
-     * @param DateTime $lastUpdatedPrice
+     * @param DateTime $last_updated
      */
-    public function setLastUpdatedPrice(DateTime $lastUpdatedPrice): void
+    public function setLastUpdated(DateTime $last_updated): void
     {
-        $this->lastUpdatedPrice = $lastUpdatedPrice;
+        $this->last_updated = $last_updated;
     }
 
 
@@ -219,32 +192,32 @@ class Usd implements DataClass,JsonSerializable
     {
         return "("
             .$this->price.","
-            .$this->volume24H.","
-            .$this->volumeChange24H.","
-            .$this->percentChange1H.","
-            .$this->percentChange24H.","
-            .$this->percentChange7D.","
-            .$this->marketCap.","
-            .$this->marketCapDominance.","
-            .$this->fullyDistributedMarketCap.","
-            .$this->lastUpdatedPrice->format("c")
+            .$this->volume_24h.","
+            .$this->volume_change_24h.","
+            .$this->percent_change_1h.","
+            .$this->percent_change_24h.","
+            .$this->percent_change_7d.","
+            .$this->market_cap.","
+            .$this->market_cap_dominance.","
+            .$this->fully_diluted_market_cap.","
+            .$this->last_updated->format("c")
             .")";
     }
 
 
-    public function jsonSerialize()
+    public function jsonSerialize() : array
     {
         return [
             'price' => $this->price
-            ,'volume_24h' => $this->volume24H
-            ,'volume_change_24h' => $this->volumeChange24H
-            ,'percent_change_1h' => $this->percentChange1H
-            ,'percent_change_24h' => $this->percentChange24H
-            ,'percent_change_7d' => $this->percentChange7D
-            ,'market_cap' => $this->marketCap
-            ,'market_cap_dominance' => $this->marketCapDominance
-            ,'fully_diluted_market_cap' => $this->fullyDistributedMarketCap
-            ,'last_updated' => $this->lastUpdatedPrice->format("c")
+            ,'volume24H' => $this->volume_24h
+            ,'volumeChange24H' => $this->volume_change_24h
+            ,'percentChange1H' => $this->percent_change_1h
+            ,'percentChange24H' => $this->percent_change_24h
+            ,'percentChange7D' => $this->percent_change_7d
+            ,'marketCap' => $this->market_cap
+            ,'marketCapDominance' => $this->market_cap_dominance
+            ,'fullyDilutedMarketCap' => $this->fully_diluted_market_cap
+            ,'lastUpdated' => $this->last_updated->format("c")
         ];
     }
 
