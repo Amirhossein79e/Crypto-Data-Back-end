@@ -30,7 +30,7 @@ class CryptoProvider extends Database implements CryptoDao
     }
 
 
-    public function select(int $limit = 50, int $offset = 0) : array|false
+    public function listAll(int $limit = 50, int $offset = 0) : array|false
     {
         $stmt = $this->mysqli->prepare("select * from crypto_data order by cmc_rank limit ? offset ?");
         $stmt->bind_param("ii",$limit,$offset);
@@ -38,7 +38,6 @@ class CryptoProvider extends Database implements CryptoDao
 
         if ($isSuccess)
         {
-
             $result = $stmt->get_result();
             $array = array();
 
@@ -53,7 +52,6 @@ class CryptoProvider extends Database implements CryptoDao
             $result->close();
             $stmt->close();
             return $array;
-
         }else
         {
             $stmt->close();
@@ -62,7 +60,7 @@ class CryptoProvider extends Database implements CryptoDao
     }
 
 
-    public function selectQuick(int $limit = 50, int $offset = 0) : array|false
+    public function listInitAll(int $limit = 50, int $offset = 0) : array|false
     {
         $stmt = $this->mysqli->prepare("select id,name,symbol,slug,cmc_rank,last_updated,price,percent_change_24h from crypto_data order by cmc_rank limit ? offset ?");
         $stmt->bind_param("ii",$limit,$offset);
@@ -70,7 +68,6 @@ class CryptoProvider extends Database implements CryptoDao
 
         if ($isSuccess)
         {
-
             $result = $stmt->get_result();
             $array = array();
 
@@ -85,7 +82,6 @@ class CryptoProvider extends Database implements CryptoDao
             $result->close();
             $stmt->close();
             return $array;
-
         }else
         {
             $stmt->close();
@@ -94,17 +90,16 @@ class CryptoProvider extends Database implements CryptoDao
     }
 
 
-    public function selectQuickById(int... $cryptoIds) : array|false
+    public function listCustom(int $limit, int $offset, int... $cryptoIds) : array|false
     {
         $ids = implode(",",$cryptoIds);
 
-        $stmt = $this->mysqli->prepare("select id,name,symbol,slug,cmc_rank,last_updated,price,percent_change_24h from crypto_data where id in (?)");
-        $stmt->bind_param("s",$ids);
+        $stmt = $this->mysqli->prepare("select * from crypto_data where id in (?) order by cmc_rank limit ? offset ?");
+        $stmt->bind_param("sii",$ids, $limit, $offset);
         $isSuccess = $stmt->execute();
 
         if ($isSuccess)
         {
-
             $result = $stmt->get_result();
             $array = array();
 
@@ -119,7 +114,92 @@ class CryptoProvider extends Database implements CryptoDao
             $result->close();
             $stmt->close();
             return $array;
+        }else
+        {
+            $stmt->close();
+            return false;
+        }
+    }
 
+
+    public function listInitCustom(int $limit, int $offset, int... $cryptoIds) : array|false
+    {
+        $ids = implode(",",$cryptoIds);
+
+        $stmt = $this->mysqli->prepare("select id,name,symbol,slug,cmc_rank,last_updated,price,percent_change_24h from crypto_data where id in (?) order by cmc_rank limit ? offset ?");
+        $stmt->bind_param("sii",$ids,$limit,$offset);
+        $isSuccess = $stmt->execute();
+
+        if ($isSuccess)
+        {
+            $result = $stmt->get_result();
+            $array = array();
+
+            if ($result->num_rows > 0)
+            {
+                while (($crypto = $result->fetch_object(Crypto::class)) != null)
+                {
+                    $array[] = $crypto;
+                }
+            }
+
+            $result->close();
+            $stmt->close();
+            return $array;
+        }else
+        {
+            $stmt->close();
+            return false;
+        }
+    }
+
+
+    public function listSingle(int $cryptoId): object|null|false
+    {
+        $stmt = $this->mysqli->prepare("select * from crypto_data where id = ?");
+        $stmt->bind_param("i",$cryptoId);
+        $isSuccess = $stmt->execute();
+
+        if ($isSuccess)
+        {
+            $result = $stmt->get_result();
+            $crypto = $result->fetch_object(Crypto::class);
+
+            $result->close();
+            $stmt->close();
+            return $crypto;
+        }else
+        {
+            $stmt->close();
+            return false;
+        }
+    }
+
+
+    public function find(int $limit, int $offset, string $keyword): array|false
+    {
+        $keyword = "%".$keyword."%";
+
+        $stmt = $this->mysqli->prepare("select id,name,symbol,slug,price,percent_change_24h from crypto_data where name like ? or symbol like ? limit ? offset ?");
+        $stmt->bind_param("ssii",$keyword,$keyword,$limit,$offset);
+        $isSuccess = $stmt->execute();
+
+        if ($isSuccess)
+        {
+            $result = $stmt->get_result();
+            $array = array();
+
+            if ($result->num_rows > 0)
+            {
+                while (($crypto = $result->fetch_object(Crypto::class)) != null)
+                {
+                    $array[] = $crypto;
+                }
+            }
+
+            $result->close();
+            $stmt->close();
+            return $array;
         }else
         {
             $stmt->close();

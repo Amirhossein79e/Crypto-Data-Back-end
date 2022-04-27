@@ -8,11 +8,17 @@ interface CryptoDao
 {
     public function insert(Crypto... $cryptos) : bool;
 
-    public function select(int $limit, int $offset) : array|false;
+    public function listAll(int $limit, int $offset) : array|false;
 
-    public function selectQuick(int $limit, int $offset) : array|false;
+    public function listInitAll(int $limit, int $offset) : array|false;
 
-    public function selectQuickById(int... $cryptoIds) : array|false;
+    public function listCustom(int $limit, int $offset, int... $cryptoIds) : array|false;
+
+    public function listInitCustom(int $limit, int $offset, int... $cryptoIds) : array|false;
+
+    public function listSingle(int $cryptoId) : object|null|false;
+
+    public function find(int $limit, int $offset, string $keyword) : array|false;
 
     public function update(Crypto... $cryptos) : bool;
 

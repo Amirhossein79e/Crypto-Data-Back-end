@@ -15,7 +15,7 @@ class Database
     }
 
 
-    protected function close()
+    protected function close() : void
     {
         $this->mysqli->close();
     }
