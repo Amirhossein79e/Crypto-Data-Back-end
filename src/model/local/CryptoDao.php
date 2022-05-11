@@ -16,7 +16,7 @@ interface CryptoDao
 
     public function listInitCustom(int $limit, int $offset, int... $cryptoIds) : array|false;
 
-    public function listSingle(int $cryptoId) : object|null|false;
+    public function listSingle(int $cryptoId) : Crypto|null|false;
 
     public function find(int $limit, int $offset, string $keyword) : array|false;
 

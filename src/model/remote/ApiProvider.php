@@ -1,10 +1,10 @@
 <?php
-
+declare(strict_types=1);
 
 namespace crypto\model\remote;
 use ConnectionException;
 use crypto\model\entity\Crypto;
-use crypto_data\util\JsonMapper;
+use crypto\util\JsonMapper;
 
 class ApiProvider implements RemoteDao
 {

@@ -6,26 +6,37 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitaadb3f12bd3fa1cf9b785ad415fe4baf
 {
+    public static $prefixLengthsPsr4 = array (
+        'c' => 
+        array (
+            'crypto\\' => 7,
+        ),
+        'F' => 
+        array (
+            'Firebase\\JWT\\' => 13,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'crypto\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
+        'Firebase\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'ConnectionException' => __DIR__ . '/../..' . '/src/util/ConnectionException.php',
-        'JsonParseException' => __DIR__ . '/../..' . '/src/util/JsonParseException.php',
-        'Test' => __DIR__ . '/../..' . '/src/util/Test.php',
-        'crypto\\model\\entity\\Crypto' => __DIR__ . '/../..' . '/src/model/entity/Crypto.php',
-        'crypto\\model\\entity\\DataClass' => __DIR__ . '/../..' . '/src/model/entity/DataClass.php',
-        'crypto\\model\\entity\\Quote' => __DIR__ . '/../..' . '/src/model/entity/Quote.php',
-        'crypto\\model\\entity\\Usd' => __DIR__ . '/../..' . '/src/model/entity/Usd.php',
-        'crypto\\model\\local\\CryptoDao' => __DIR__ . '/../..' . '/src/model/local/CryptoDao.php',
-        'crypto\\model\\local\\CryptoProvider' => __DIR__ . '/../..' . '/src/model/local/CryptoProvider.php',
-        'crypto\\model\\local\\Database' => __DIR__ . '/../..' . '/src/model/local/Database.php',
-        'crypto\\model\\remote\\ApiProvider' => __DIR__ . '/../..' . '/src/model/remote/ApiProvider.php',
-        'crypto\\model\\remote\\RemoteDao' => __DIR__ . '/../..' . '/src/model/remote/RemoteDao.php',
-        'crypto_data\\util\\JsonMapper' => __DIR__ . '/../..' . '/src/util/JsonMapper.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInitaadb3f12bd3fa1cf9b785ad415fe4baf::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitaadb3f12bd3fa1cf9b785ad415fe4baf::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInitaadb3f12bd3fa1cf9b785ad415fe4baf::$classMap;
 
         }, null, ClassLoader::class);

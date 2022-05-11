@@ -1,11 +1,17 @@
 <?php
-
+declare(strict_types=1);
 
 namespace crypto\model\local;
 use crypto\model\entity\Crypto;
 
 class CryptoProvider extends Database implements CryptoDao
 {
+
+    protected function __construct()
+    {
+        parent::__construct();
+    }
+
 
     public function insert(Crypto... $cryptos) : bool
     {
@@ -154,7 +160,7 @@ class CryptoProvider extends Database implements CryptoDao
     }
 
 
-    public function listSingle(int $cryptoId): object|null|false
+    public function listSingle(int $cryptoId): Crypto|null|false
     {
         $stmt = $this->mysqli->prepare("select * from crypto_data where id = ?");
         $stmt->bind_param("i",$cryptoId);

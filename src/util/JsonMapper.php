@@ -1,7 +1,7 @@
 <?php
+declare(strict_types=1);
 
-
-namespace crypto_data\util;
+namespace crypto\util;
 use DateTime;
 use Exception;
 use JsonParseException;
@@ -107,7 +107,7 @@ class JsonMapper
 
 
     /**
-     * this modify value if needed for mapping.
+     * this modifies value if needed for mapping.
      * @param ReflectionProperty $property
      * @param $value
      * @return DateTime|object

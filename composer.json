@@ -9,10 +9,12 @@
       "email": "amirhossein79.e@gmail.com"
     }
   ],
-  "require": {
-
+  "require":
+  {
+    "firebase/php-jwt": "v6.1.2"
   },
-  "autoload": {
-    "classmap": ["src/model","src/controller","src/view","src/util"]
+  "autoload":
+  {
+    "psr-4": {"crypto\\": "src"}
   }
 }
